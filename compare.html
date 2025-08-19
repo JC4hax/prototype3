@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granylst - Compare Data</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="aiAnalysis.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Granylst</div>
+        <a class="ecb-link" href="../index.html" title="Back to ECB Lens">ECB Lens</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="create.html">Create Graph</a></li>
+            <li><a href="compare.html">Compare Data</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button id="darkModeToggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+    <main class="container">
+        <h1>Compare Data</h1>
+        <form id="compareForm">
+            <label for="aiPrompt1">Describe Dataset 1 (natural language or table):</label>
+            <textarea id="aiPrompt1" rows="4" placeholder="Paste or type multi-line data for Dataset 1"></textarea>
+            <button type="button" id="aiInterpret1">Interpret with AI</button>
+            <div id="aiFeedback1" class="ai-feedback"></div>
+            <label for="csvUpload1">Upload CSV File for Dataset 1:</label>
+            <input type="file" id="csvUpload1" accept=".csv">
+            <label>Or enter data in table for Dataset 1:</label>
+            <table id="dataTable1" class="data-table">
+                <thead>
+                    <tr><th>Label</th><th>Value</th><th></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><input type="text" class="label-input"></td><td><input type="number" class="value-input"></td><td><button type="button" class="remove-row">✖</button></td></tr>
+                </tbody>
+            </table>
+            <button type="button" id="addRow1">Add Row</button>
+            <label for="dataset1">Or paste data for Dataset 1 (CSV or comma-separated):</label>
+            <textarea id="dataset1" rows="3" placeholder="e.g. Category,Value\nA,10\nB,20\nC,30"></textarea>
+            <label for="aiPrompt2">Describe Dataset 2 (natural language or table):</label>
+            <textarea id="aiPrompt2" rows="4" placeholder="Paste or type multi-line data for Dataset 2"></textarea>
+            <button type="button" id="aiInterpret2">Interpret with AI</button>
+            <div id="aiFeedback2" class="ai-feedback"></div>
+            <label for="csvUpload2">Upload CSV File for Dataset 2:</label>
+            <input type="file" id="csvUpload2" accept=".csv">
+            <label>Or enter data in table for Dataset 2:</label>
+            <table id="dataTable2" class="data-table">
+                <thead>
+                    <tr><th>Label</th><th>Value</th><th></th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><input type="text" class="label-input"></td><td><input type="number" class="value-input"></td><td><button type="button" class="remove-row">✖</button></td></tr>
+                </tbody>
+            </table>
+            <button type="button" id="addRow2">Add Row</button>
+            <label for="dataset2">Or paste data for Dataset 2 (CSV or comma-separated):</label>
+            <textarea id="dataset2" rows="3" placeholder="e.g. Category,Value\nA,15\nB,18\nC,25"></textarea>
+            <label for="compareType">Chart Type:</label>
+            <select id="compareType">
+                <option value="bar">Bar</option>
+                <option value="line">Line</option>
+                <option value="radar">Radar</option>
+            </select>
+            <button type="submit">Generate Comparative Graph</button>
+        </form>
+        <section class="graph-section">
+            <canvas id="compareCanvas"></canvas>
+            <button id="downloadCompareGraph" type="button">Download Graph</button>
+        </section>
+        <section class="ai-insights">
+            <h2>AI Insights</h2>
+            <div class="ai-content"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Granylst</p>
+    </footer>
+</body>
+</html>

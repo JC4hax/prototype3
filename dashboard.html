@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Granylst - Dashboard</title>
+	<link rel="stylesheet" href="bloomberg.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script defer src="bloomberg.js"></script>
+</head>
+<body class="bb-body">
+	<header class="bb-topbar">
+		<div class="bb-logo">Granylst</div>
+		<a class="bb-ecb-link" href="../index.html" title="Back to ECB Lens">ECB Lens</a>
+		<nav class="bb-nav">
+			<a href="index.html">Home</a>
+			<a href="dashboard.html" class="active">Dashboard</a>
+			<a href="create.html">Create</a>
+			<a href="compare.html">Compare</a>
+			<a href="about.html">About</a>
+			<a href="contact.html">Contact</a>
+		</nav>
+		<div class="bb-search">
+			<input type="text" placeholder="Search tickers, datasets...">
+		</div>
+	</header>
+
+	<section class="bb-ticker" aria-label="Market ticker">
+		<div class="bb-ticker-track" id="marketTicker"></div>
+	</section>
+
+	<main class="bb-grid">
+		<section class="bb-panel bb-main-chart">
+			<div class="bb-panel-header">
+				<h2>EURUSD - Overview</h2>
+				<div class="bb-actions">
+					<button data-range="1M">1M</button>
+					<button data-range="3M">3M</button>
+					<button data-range="1Y">1Y</button>
+					<button data-range="5Y">5Y</button>
+				</div>
+			</div>
+			<canvas id="mainChart"></canvas>
+		</section>
+		<aside class="bb-panel bb-right">
+			<div class="bb-stats">
+				<div class="bb-stat"><span>Open</span><strong id="statOpen">-</strong></div>
+				<div class="bb-stat"><span>High</span><strong id="statHigh">-</strong></div>
+				<div class="bb-stat"><span>Low</span><strong id="statLow">-</strong></div>
+				<div class="bb-stat"><span>Close</span><strong id="statClose">-</strong></div>
+			</div>
+			<div class="bb-insights">
+				<h3>AI Insights</h3>
+				<p id="bbInsights">Insights will appear here.</p>
+			</div>
+		</aside>
+		<section class="bb-panel bb-news">
+			<div class="bb-panel-header">
+				<h2>Top News</h2>
+			</div>
+			<ul id="newsList" class="bb-news-list"></ul>
+		</section>
+	</main>
+</body>
+</html>
